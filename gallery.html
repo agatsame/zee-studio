@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zee Studio | Showcase Gallery</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#ff7e00',
+                            red: '#b70000',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'Noto Sans Myanmar', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Poppins', 'Noto Sans Myanmar', 'sans-serif';
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        .dark .glass {
+            background: rgba(15, 15, 15, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ff7e00 0%, #b70000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, #ff7e00 0%, #b70000 100%);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff7e00 0%, #b70000 100%);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 antialiased overflow-x-hidden selection:bg-brand-orange selection:text-white">
+
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-brand-orange/10 dark:bg-brand-orange/5 blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-brand-red/10 dark:bg-brand-red/5 blur-[120px]"></div>
+    </div>
+
+    <!-- Header Navbar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 py-3 px-3 sm:py-4 sm:px-6 md:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass rounded-2xl px-4 py-2.5 sm:px-6 sm:py-3 shadow-lg">
+            <a href="index.html" class="flex items-center gap-2 sm:gap-3 font-extrabold text-xl sm:text-2xl tracking-wider uppercase group">
+                <img src="https://i.ibb.co/zWKBGLPQ/Zee-Logo.png" alt="Zee Studio Logo" class="h-8 sm:h-9 w-auto rounded-md object-contain">
+                <span class="text-gradient">Zee <span class="text-slate-800 dark:text-white group-hover:text-brand-orange transition-colors">Studio</span></span>
+            </a>
+            
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="index.html" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-900 transition-all text-xs font-semibold flex items-center gap-1.5 shadow-sm">
+                    <i class="fas fa-arrow-left"></i> <span class="lang" data-en="Back to Home" data-mm="ပင်မစာမျက်နှာသို့">Back to Home</span>
+                </a>
+                <button id="lang-toggle" class="px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-900 transition-all shadow-sm text-xs font-semibold flex items-center gap-1 sm:gap-1.5">
+                    <span id="lang-flag">🇲🇲</span> <span id="lang-text" class="hidden xs:inline">မြန်မာ</span>
+                </button>
+                <button id="theme-toggle" class="p-2 sm:p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-900 transition-all shadow-sm">
+                    <i id="theme-icon" class="fas fa-moon text-base sm:text-lg text-brand-orange"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto pb-20">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-down">
+            <h1 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-3">
+                <span class="text-gradient lang" data-en="Showcase Gallery" data-mm="ဒီဇိုင်းလက်ရာစုံပြခန်း">Showcase Gallery</span>
+            </h1>
+            <p class="text-sm sm:text-base text-slate-600 dark:text-zinc-400 font-light leading-relaxed lang"
+               data-en="Explore the complete premium visual collection crafted by Zee Studio. Click project collection to view all sub-designs."
+               data-mm="Zee Studio မှ စိတ်ကြိုက်အနုပညာမြောက် ဖန်တီးထားသော အဆင့်မြင့်လက်ရာများ။ ပရောဂျက်အလိုက် ဒီဇိုင်းတွဲများကို တစ်စုတစ်စည်းတည်း ကြည့်ရှုရန် ခလုတ်ကို နှိပ်ပါ။">
+                Explore the complete premium visual collection crafted by Zee Studio.
+            </p>
+        </div>
+
+        <!-- Main Project Grid (ဆိုင်အလိုက် အုပ်စု ၈ ခုလုံး နေရာချထားခြင်း) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            
+            <!-- Group 1: Musicafe Menu -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=1_VDsnn1opkTrJo6oHtIlvhzyBHSuhA4k" alt="Musicafe Menu" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Print & Layout</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">Musicafe Menu</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="Modern food and beverage catalog design for Musicafe." data-mm="ဂီတကဖေးဆိုင်အတွက် သပ်ရပ်လှပပြီး လူကြိုက်များစေမည့် အစားအသောက် Menu ကတ်။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-musicafe')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View Full Menu" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View Full Menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 2: New Bloom Learning Center -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="50">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=1UDueN3CV_jlSLzSau3HwpYLJNqND1Ilz" alt="New Bloom Learning Center" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Academic Branding</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">New Bloom Learning Center</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="Private High School promotional identity suite." data-mm="New Bloom ကိုယ်ပိုင်အထက်တန်းကျောင်းအတွက် ကြော်ငြာနှင့် စာရင်းသွင်းမှုဆိုင်ရာ ဒီဇိုင်းများ။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-newbloom')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View Full Collection" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View Full Collection</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 3: Tang Yang BBQ & Bar Menu -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=1QNf4ANJejnaUJTXpIbBD8wUhN-3_eio0" alt="Tang Yang BBQ Menu" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Commercial Art</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">Tang Yang BBQ &amp; Bar Menu</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="Premium commercial layout for Tang Yang BBQ Restaurant." data-mm="တန်ယန် အကင်နှင့် ဘားဆိုင်အတွက် ဆွဲဆောင်မှုရှိသော အဆင့်မြင့် Menu ဒီဇိုင်း။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-tangyang')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View Full Menu" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View Full Menu</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 4: New Fashion -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=1OgNqKqvW9lN6nzyhMEbQjElHWrePdRKk" alt="New Fashion" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Retail Branding</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">New Fashion Suite</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="Sleek branding profiles tailored for modern apparel retail." data-mm="ခေတ်မီ အထည်အလိပ်လုပ်ငန်းများအတွက် အဆင့်မြင့် ဖန်တီးပေးထားသော ဒီဇိုင်း။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-newfashion')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View Full Collection" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View Full Collection</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 5: A Linn Thit -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="50">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=12Jng-I5L3AR7YuED2xiGalg3RIpCujVk" alt="A Linn Thit" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Corporate Identity</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">A Linn Thit Project</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="Creative and professional marketing artwork for Alinnthit." data-mm="အလင်းသစ် လုပ်ငန်းအတွက် ဆန်းသစ်တီထွင်မှုရှိသော အဆင့်မြင့် ကမ်ပိန်းဒီဇိုင်း။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-alinnthit')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View Full Collection" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View Full Collection</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 6: Carabao -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=1Zm_Xm6ByIlIJs6x7ALLuNXKrgjzi0c6F" alt="Carabao" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Social Media Kit</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">Carabao Campaign</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="High engagement commercial advertisement optimization." data-mm="လူမှုကွန်ရက်စာမျက်နှာများအတွက် ဆွဲဆောင်မှုရှိသော ကာဘာအို ကြော်ငြာဒီဇိုင်း။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-carabao')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View Full Collection" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View Full Collection</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 7: LOGO Collection -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=1DZrtNyDA3xKDUaO38u5QgkiF6rqhwRRs" alt="Logos" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Vector Identity</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">Premium Logo Showcase</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="Minimalist and distinct custom corporate brand symbols." data-mm="လုပ်ငန်းအမှတ်တံဆိပ်ကို ပေါ်လွင်စေမည့် ရိုးရှင်းဆန်းသစ်သော ဗက်တာလိုဂိုဒီဇိုင်းများ။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-logo')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View All Logos" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View All Logos</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 8: LUNA STUDIO -->
+            <div class="glass rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-900 shadow-md group hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="50">
+                <div>
+                    <div class="aspect-video bg-zinc-900/40 dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center p-2">
+                        <img src="https://drive.google.com/thumbnail?sz=w1000&id=1894UOpyFkDxLk8yCV3GWAZ34IzpHGmgH" alt="Luna Studio" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 pb-0">
+                        <span class="text-xs text-brand-orange font-semibold uppercase tracking-wider">Creative Studio</span>
+                        <h3 class="text-lg font-bold mt-1 text-slate-800 dark:text-zinc-100">LUNA STUDIO Assets</h3>
+                        <p class="text-xs text-slate-500 dark:text-zinc-400 mt-1 font-light lang" data-en="Premium modern visual identities developed for Luna Fashion & Studio." data-mm="LUNA Fashion Shop နှင့် စတူဒီယိုအတွက် အဆင့်မြင့်ဆန်းသစ်သော အမှတ်တံဆိပ်လက်ရာများ။"></p>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <button onclick="openModal('modal-lunastudio')" class="w-full bg-slate-100 dark:bg-zinc-900 hover:bg-gradient-brand hover:text-white text-slate-800 dark:text-zinc-200 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> <span class="lang" data-en="View Full Collection" data-mm="နောက်ထပ်လက်ရာများကြည့်ရန်">View Full Collection</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-16" data-aos="zoom-in">
+            <p class="text-sm text-slate-500 dark:text-zinc-400 mb-4 lang" data-en="Want to create something unique together?" data-mm="သင့်လုပ်ငန်းအတွက် ဒီလိုလှပတဲ့ဒီဇိုင်းတွေ ဖန်တီးချင်ပါသလား။"></p>
+            <a href="index.html#contact" class="bg-gradient-brand text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2 text-sm">
+                <span class="lang" data-en="Hire Zee Studio" data-mm="အခုပဲ ဆက်သွယ်အပ်နှံရန်">Hire Zee Studio</span> <i class="fas fa-paper-plane text-xs"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- ==================== POPUP MODALS SECTION (ဆိုင်အလိုက် အုပ်စုအပြည့်အစုံ ပြကွက်များ) ==================== -->
+    
+    <!-- 1. Musicafe Menu Modal -->
+    <div id="modal-musicafe" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-musicafe')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">Musicafe Full Menu Collection</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1_VDsnn1opkTrJo6oHtIlvhzyBHSuhA4k" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1Pbr4xbMMQAfxQU95lFxlaEfArqK3X4ni" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1zh6Epgd93-C9ux1ia2Qz5NsVRBJGtbYA" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. New Bloom Learning Center Modal -->
+    <div id="modal-newbloom" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-newbloom')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">New Bloom Learning Center (Private High School)</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1UDueN3CV_jlSLzSau3HwpYLJNqND1Ilz" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1MBisYWocgVfbHVGqfmNE19Zn8kEpRfYw" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1gFrtye_K9_8PEMcW4MiTVU2z6F8YXco8" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=10YQTnOqRhOxefQD3VKOMGwftnPAQTi-v" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1LNZi6Paq6SEsmRjkOAfWsCD7_aBuVC3x" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1g19yc6P3bhESKKID67-oPslfX1Z65ZzT" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1QsFHxEUHerPfARS0jH9KZb01WYRa31SQ" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1yMVqhfQD2oNGj_2-HX-4kmIGXm9yr18S" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1pwBtB7_4Nvtxtl1Ill9kJzW9sp5mx3wD" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1MnQAMTdIfjqdu4nYDRZ1JMsyGeNH2hCn" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1ciQTnDvVYYaoQyWSflEk7_TjPOxBRzyj" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Tang Yang BBQ & Bar Menu Modal -->
+    <div id="modal-tangyang" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-tangyang')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">Tang Yang BBQ &amp; Bar Full Menu</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1QNf4ANJejnaUJTXpIbBD8wUhN-3_eio0" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1jvYugzpLgzT5i1T-rDx1H84ySMhs2Y7D" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=10grGAPQV_-3H7NbooxeyPiz1GbY0SQ4j" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1MDUVwxD4KTYR6QLWfMo4W4TXDwGj4rda" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1P8c9pUZZ2bSB7i9vRUet-yFAByP3RZiW" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1n1c5sIQD6v-4nXlLx1B4-OF8hfFJsSGI" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. New Fashion Modal -->
+    <div id="modal-newfashion" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-newfashion')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">New Fashion Complete Assets</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1OgNqKqvW9lN6nzyhMEbQjElHWrePdRKk" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. A Linn Thit Modal -->
+    <div id="modal-alinnthit" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-alinnthit')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">A Linn Thit Project Portfolio</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=12Jng-I5L3AR7YuED2xiGalg3RIpCujVk" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Carabao Modal -->
+    <div id="modal-carabao" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-carabao')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">Carabao Campaign Show</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1Zm_Xm6ByIlIJs6x7ALLuNXKrgjzi0c6F" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. LOGO Collection Modal -->
+    <div id="modal-logo" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-logo')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">Corporate Identity Vector Logos</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1DZrtNyDA3xKDUaO38u5QgkiF6rqhwRRs" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1SuOQ-gtcFYhjm6GMUBFdgJSGER3stA3L" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1S4QuNsa09gMLHHjpCHX9EXjNrxj7Hnk2" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. LUNA STUDIO Modal -->
+    <div id="modal-lunastudio" class="fixed inset-0 z-50 hidden bg-zinc-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-900 w-full max-w-4xl rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-zinc-800 max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeModal('modal-lunastudio')" class="absolute top-4 right-4 text-slate-500 hover:text-brand-orange text-xl z-10"><i class="fas fa-times"></i></button>
+            <h3 class="text-xl font-bold mb-4 text-gradient">LUNA STUDIO Brand Identities</h3>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1894UOpyFkDxLk8yCV3GWAZ34IzpHGmgH" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1w1MbZlymeRNF4Egupotca7-uw_nHsWtj" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+                <img src="https://drive.google.com/thumbnail?sz=w1000&id=1S4QuNsa09gMLHHjpCHX9EXjNrxj7Hnk2" class="max-w-full max-h-[70vh] object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-200 dark:border-zinc-900 py-6 sm:py-8 px-4 text-center text-xs text-slate-500 dark:text-zinc-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Zee Studio. Crafted with Passion.</p>
+            <div class="flex gap-6"><span>Khant Zayar Thu Gallery</span></div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Modal Controls (Popup Animation & Scroll Lock)
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the content area
+        window.onclick = function(event) {
+            if (event.target.id.startsWith('modal-')) {
+                event.target.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) { navbar.classList.add('px-0', 'py-1.5'); } 
+            else { navbar.classList.remove('px-0', 'py-1.5'); }
+        });
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeIcon.className = 'fas fa-sun text-base sm:text-lg text-brand-orange';
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                themeIcon.className = 'fas fa-moon text-base sm:text-lg text-brand-orange';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+            themeIcon.className = 'fas fa-sun text-base sm:text-lg text-brand-orange';
+        } else {
+            htmlElement.classList.add('dark');
+            themeIcon.className = 'fas fa-moon text-base sm:text-lg text-brand-orange';
+        }
+
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const langFlag = document.getElementById('lang-flag');
+        const langText = document.getElementById('lang-text');
+        let currentLang = localStorage.getItem('preferred_lang') || 'en';
+
+        function updateLanguageUI(lang) {
+            const elements = document.querySelectorAll('.lang');
+            elements.forEach(el => {
+                if (lang === 'mm') { el.textContent = el.getAttribute('data-mm'); } 
+                else { el.textContent = el.getAttribute('data-en'); }
+            });
+
+            if (lang === 'mm') {
+                langFlag.textContent = '🇺🇸';
+                if(langText) langText.textContent = 'English';
+                document.documentElement.lang = 'mm';
+            } else {
+                langFlag.textContent = '🇲🇲';
+                if(langText) langText.textContent = 'မြန်မာ';
+                document.documentElement.lang = 'en';
+            }
+        }
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'mm' : 'en';
+            localStorage.setItem('preferred_lang', currentLang);
+            updateLanguageUI(currentLang);
+        });
+
+        updateLanguageUI(currentLang);
+    </script>
+</body>
+</html>
